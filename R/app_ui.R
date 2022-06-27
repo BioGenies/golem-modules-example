@@ -10,7 +10,19 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("GolemUOrkiestra")
+      h1("GolemUOrkiestra"),
+      sidebarLayout(
+        sidebarPanel(
+          numericInput(inputId = "n",
+                       label = "select num points",
+                       value = 10,
+                       min = 1,
+                       max = 1000)
+        ),
+        mainPanel(
+          plotOutput("my_plot")
+        )
+      )
     )
   )
 }
