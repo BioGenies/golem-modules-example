@@ -6,17 +6,7 @@
 #' @import ggplot2
 #' @noRd
 app_server <- function(input, output, session) {
-  set.seed(2137)
-
-  dat <- reactive({
-    data.frame(
-      x = rnorm(input[["n"]]),
-      y = rnorm(input[["n"]])
-    )
-  })
-
-  output[["my_plot"]] <- renderPlot({
-    ggplot(dat(), aes(x, y)) +
-      geom_point()
-  })
+  val_1 <- mod_select_and_plot_server("select_and_plot_1", geom_point)
+  val_2 <- mod_select_and_plot_server("select_and_plot_2", geom_line)
+  mod_sum_values_server("sum_values_1", val_1, val_2)
 }

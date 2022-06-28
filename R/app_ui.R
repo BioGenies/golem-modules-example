@@ -11,18 +11,9 @@ app_ui <- function(request) {
     # Your application UI logic
     fluidPage(
       h1("GolemUOrkiestra"),
-      sidebarLayout(
-        sidebarPanel(
-          numericInput(inputId = "n",
-                       label = "select num points",
-                       value = 10,
-                       min = 1,
-                       max = 1000)
-        ),
-        mainPanel(
-          plotOutput("my_plot")
-        )
-      )
+      mod_select_and_plot_ui("select_and_plot_1"),
+      mod_select_and_plot_ui("select_and_plot_2"),
+      mod_sum_values_ui("sum_values_1")
     )
   )
 }
